@@ -1,4 +1,12 @@
-# screenplay-web-bdd
+<img src="assets/marca/banner.png" alt="Screenplay web en capas numeradas — Girek Study" />
+
+<p>
+  <img alt="Playwright" src="https://img.shields.io/badge/Playwright-1.49-2EAD33?style=flat-square&logo=playwright&logoColor=white" />
+  <img alt="Cucumber" src="https://img.shields.io/badge/Cucumber-11-23D96C?style=flat-square&logo=cucumber&logoColor=white" />
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript&logoColor=white" />
+  <img alt="Licencia MIT" src="https://img.shields.io/badge/licencia-MIT-ff6a1a?style=flat-square" />
+  <a href="https://github.com/Girek-Study/screenplay-web-bdd/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Girek-Study/screenplay-web-bdd/actions/workflows/ci.yml/badge.svg" /></a>
+</p>
 
 Framework de automatización web con **patrón Screenplay en capas numeradas**: Playwright,
 Cucumber y TypeScript. Trae su propia app de ejemplo, así que se clona y corre sin
