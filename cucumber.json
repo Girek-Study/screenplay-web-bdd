@@ -1,0 +1,19 @@
+{
+  "default": {
+    "formatOptions": { "snippetInterface": "async-await" },
+    "paths": ["Framework/0001.Features/**/*.feature"],
+    "require": [
+      "Framework/0002.Steps/**/*.ts",
+      "Framework/0009.Utils/Test.Life.cycle.ts"
+    ],
+    "requireModule": ["ts-node/register"],
+    "format": [
+      "summary",
+      "html:Reports/cucumber-report.html",
+      "json:Reports/cucumber-report.json",
+      "junit:Reports/cucumber-report.xml"
+    ],
+    "dryRun": false,
+    "parallel": 1
+  }
+}

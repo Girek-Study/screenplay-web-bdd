@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["ES2022", "DOM"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "noEmit": true,
+    "types": ["node"]
+  },
+  // ts-node ignora por defecto los .d.ts del "include": sin esto, el tipado de
+  // los paquetes sin tipos propios funciona en `tsc` y falla al ejecutar.
+  "ts-node": { "files": true },
+  "include": ["Framework/**/*.ts", "tests/**/*.ts", "types/**/*.d.ts"],
+  "exclude": ["node_modules", "Reports", "coverage"]
+}

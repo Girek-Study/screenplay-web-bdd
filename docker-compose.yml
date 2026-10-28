@@ -1,0 +1,18 @@
+# Corre la suite en el mismo contenedor que usa el CI.
+#
+# La imagen de Playwright trae los tres navegadores y sus dependencias de
+# sistema ya instaladas. Sin esto, "en mi máquina pasa" es una conversación
+# semanal: la versión de las librerías gráficas del equipo de desarrollo nunca
+# es la del agente de integración.
+services:
+  suite:
+    image: mcr.microsoft.com/playwright:v1.49.1-jammy
+    working_dir: /suite
+    volumes:
+      - .:/suite
+    environment:
+      PROJECT_NAME: ${PROJECT_NAME:-Suite web Screenplay}
+      URL_WEB: ${URL_WEB:-http://localhost:4173}
+      BROWSER_PORTAL: ${BROWSER_PORTAL:-chromium}
+      BROWSER_NO_VISUAL: "true"
+    command: sh -c "npm ci && npm test && npm run informe"

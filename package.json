@@ -1,0 +1,46 @@
+{
+  "name": "screenplay-web-bdd",
+  "version": "1.0.0",
+  "description": "Framework de automatización web con patrón Screenplay en capas numeradas: Playwright, Cucumber y TypeScript, con app de ejemplo incluida.",
+  "license": "MIT",
+  "author": "Giancarlo Palomino (Girek Study)",
+  "keywords": [
+    "screenplay",
+    "playwright",
+    "cucumber",
+    "bdd",
+    "gherkin",
+    "typescript",
+    "qa-automation"
+  ],
+  "scripts": {
+    "demo": "node scripts/serve-demo.js",
+    "test": "node -r ts-node/register Framework/0010.Runners/R001.Run.Test.Web.ts",
+    "test:smoke": "npm test -- --tags \"@smoke and not @wip\"",
+    "test:regresion": "npm test -- --tags \"@regresion\"",
+    "test:visible": "cross-env BROWSER_NO_VISUAL=false npm test",
+    "test:firefox": "cross-env BROWSER_PORTAL=firefox npm test",
+    "test:webkit": "cross-env BROWSER_PORTAL=webkit npm test",
+    "informe": "node -r ts-node/register Framework/0009.Utils/Multiple.Cucumber.Html.ts",
+    "unit": "vitest run",
+    "unit:cov": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "cov:merge": "node tools/merge-lcov.js"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
+    "@playwright/test": "^1.49.1",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.10.2",
+    "@vitest/coverage-v8": "^2.1.8",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.7",
+    "fs-extra": "^11.2.0",
+    "multiple-cucumber-html-reporter": "^3.9.0",
+    "playwright": "^1.49.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

@@ -1,0 +1,53 @@
+name: Suite web
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  unitarias:
+    name: Unitarias y tipos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: cp .env.example .env
+      - run: npm run typecheck
+      - run: npm run unit
+
+  escenarios:
+    name: Escenarios en ${{ matrix.navegador }}
+    runs-on: ubuntu-latest
+    needs: unitarias
+    strategy:
+      # Un navegador que falla no cancela los otros dos: el informe interesa
+      # completo, porque "falla solo en WebKit" es media respuesta ya dada.
+      fail-fast: false
+      matrix:
+        navegador: [chromium, firefox, webkit]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: cp .env.example .env
+      - run: npx playwright install --with-deps ${{ matrix.navegador }}
+      - run: npm test
+        env:
+          BROWSER_PORTAL: ${{ matrix.navegador }}
+      - run: npm run informe
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: informe-${{ matrix.navegador }}
+          path: Reports/
+          retention-days: 7
