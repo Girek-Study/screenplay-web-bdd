@@ -32,6 +32,27 @@ app propia. El código es el mismo; el dominio, no.
 
 ---
 
+## Antes del código: el trabajo de calidad
+
+<img src="docs/assets/suite-vs-defectos.png" alt="9 escenarios y 43 pasos en verde, frente a 8 defectos que la suite no detecta" />
+
+Un repositorio de automatización enseña **cómo** se automatiza. No enseña qué se decidió
+probar, ni por qué, ni qué se dejó fuera. Eso está en **[`docs/`](docs/)**:
+
+| | |
+| --- | --- |
+| [Análisis funcional](docs/01-analisis-funcional.md) | Las dieciséis reglas de la aplicación, incluidas las seis que no están escritas en ningún sitio |
+| [Diseño de casos](docs/02-diseno-de-casos.md) | Partición de equivalencia, valores límite, tabla de decisión y transición de estados, aplicadas |
+| [Matriz de trazabilidad](docs/03-matriz-trazabilidad.md) | 19 casos diseñados, 9 automatizados, y el motivo de cada uno de los 10 que no |
+| [Análisis de riesgos](docs/04-analisis-riesgos.md) | Qué se automatiza primero, qué se queda manual y qué no se prueba |
+| [Defectos encontrados](docs/05-defectos.md) | **Ocho**, con pasos de reproducción |
+
+Los ocho defectos salieron de una sesión de exploración de veinte minutos, probando lo que
+ningún escenario probaba. No es una contradicción con el verde de arriba: una suite
+comprueba **lo que alguien decidió comprobar**, y esa decisión no se ve en el código.
+
+---
+
 ## Por qué las carpetas van numeradas
 
 ```

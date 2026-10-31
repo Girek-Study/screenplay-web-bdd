@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700&f[]=jet-brains-mono@400,500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root { --fox: #ff6a1a; --verde: #3fb950; --rojo: #f85149; --tinta: #0f0e0d; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        width: 1280px;
+        height: 500px;
+        background: var(--tinta);
+        font-family: 'Satoshi', system-ui, sans-serif;
+        color: #fffaf4;
+        overflow: hidden;
+        position: relative;
+        padding: 46px 56px 44px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .rejilla {
+        position: absolute; inset: 0;
+        background-image:
+          linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+        background-size: 44px 44px;
+        mask-image: radial-gradient(ellipse 95% 90% at 50% 0%, #000 20%, transparent 85%);
+      }
+
+      .rotulo {
+        position: relative; z-index: 2;
+        display: inline-flex; align-items: center; gap: 9px;
+        font-family: 'JetBrains Mono', monospace; font-size: 12px;
+        letter-spacing: 0.17em; text-transform: uppercase; color: #ff8a52;
+        margin-bottom: 13px;
+      }
+      .rotulo::before { content: ''; width: 24px; height: 1.5px; background: var(--fox); }
+
+      h1 {
+        position: relative; z-index: 2;
+        font-family: 'Clash Display', system-ui, sans-serif; font-weight: 700;
+        font-size: 36px; line-height: 1.06; letter-spacing: -0.025em;
+        margin-bottom: 34px;
+      }
+      h1 em { font-style: normal; color: var(--fox); }
+
+      .par { position: relative; z-index: 2; display: flex; gap: 22px; flex: 1; }
+
+      .lado {
+        flex: 1;
+        border: 1px solid rgba(255,250,244,0.12);
+        border-radius: 16px;
+        padding: 26px 28px;
+        display: flex; flex-direction: column;
+        background: rgba(255,250,244,0.025);
+      }
+      .lado.verde { border-color: rgba(63,185,80,0.4); background: rgba(63,185,80,0.07); }
+      .lado.rojo  { border-color: rgba(248,81,73,0.4);  background: rgba(248,81,73,0.07); }
+
+      .cabeza {
+        display: flex; align-items: center; gap: 9px;
+        font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+        color: rgba(255,250,244,0.6); margin-bottom: 16px;
+      }
+      .punto { width: 9px; height: 9px; border-radius: 50%; }
+      .verde .punto { background: var(--verde); box-shadow: 0 0 12px rgba(63,185,80,0.8); }
+      .rojo  .punto { background: var(--rojo);  box-shadow: 0 0 12px rgba(248,81,73,0.8); }
+
+      .cifrota {
+        font-family: 'Clash Display', system-ui, sans-serif; font-weight: 700;
+        font-size: 72px; line-height: 0.9; letter-spacing: -0.035em;
+      }
+      .verde .cifrota { color: var(--verde); }
+      .rojo  .cifrota { color: var(--rojo); }
+
+      .pie-cifra { margin-top: 10px; font-size: 16px; color: rgba(255,250,244,0.72); font-weight: 500; }
+
+      .lista { margin-top: auto; padding-top: 16px; display: flex; flex-direction: column; gap: 7px; }
+      .renglon {
+        font-family: 'JetBrains Mono', monospace; font-size: 12px;
+        color: rgba(255,250,244,0.5); display: flex; gap: 8px;
+      }
+      .renglon b { color: rgba(255,250,244,0.82); font-weight: 500; }
+
+      footer {
+        position: relative; z-index: 2; margin-top: 26px;
+        font-size: 16px; color: rgba(255,250,244,0.62); font-weight: 500;
+        display: flex; gap: 11px; align-items: baseline;
+      }
+      footer strong { color: #fffaf4; font-weight: 700; }
+      .fl { color: var(--fox); font-family: monospace; }
+    </style>
+  </head>
+  <body>
+    <div class="rejilla"></div>
+
+    <span class="rotulo">Lo que una suite en verde no dice</span>
+    <h1>Las dos cosas son ciertas <em>a la vez</em></h1>
+
+    <div class="par">
+      <div class="lado verde">
+        <div class="cabeza"><span class="punto"></span> npm test</div>
+        <div class="cifrota">9 / 43</div>
+        <div class="pie-cifra">escenarios y pasos, todos en verde</div>
+        <div class="lista">
+          <span class="renglon"><b>✓</b> Ingreso, sesión y cierre</span>
+          <span class="renglon"><b>✓</b> Agregar, completar y limpiar</span>
+          <span class="renglon"><b>✓</b> Chromium, Firefox y WebKit</span>
+        </div>
+      </div>
+
+      <div class="lado rojo">
+        <div class="cabeza"><span class="punto"></span> 20 min de exploración</div>
+        <div class="cifrota">8</div>
+        <div class="pie-cifra">defectos, ninguno detectado por la suite</div>
+        <div class="lista">
+          <span class="renglon"><b>!</b> 4400 px de desborde con un título largo</span>
+          <span class="renglon"><b>!</b> El error no se anuncia a un lector</span>
+          <span class="renglon"><b>!</b> Una tarea en blanco se descarta en silencio</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <span class="fl">▸</span>
+      <span>Una suite comprueba <strong>lo que alguien decidió comprobar</strong>. Todo el valor está en esa decisión, y no se ve en el código.</span>
+    </footer>
+  </body>
+</html>
